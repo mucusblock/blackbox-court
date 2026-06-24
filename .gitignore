@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+dist/
+build/
+*.log
+.next-*.log
+.server.*.log
+data/blackbox-records.json
+ChatExport_*/
