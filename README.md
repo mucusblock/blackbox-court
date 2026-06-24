@@ -61,6 +61,12 @@ PAPER_LOG_URL=https://your-public-paper-log-or-getagent-studio-link
 
 The link appears on `/developers` only when configured. This keeps the claim honest and makes the external evidence inspectable.
 
+## Public verification
+
+- Live demo: <https://blackbox-court.vercel.app>
+- [Redacted evaluation sample](examples/pre-trade-evaluation.sample.json)
+- [Reproduction and safety notes](docs/VERIFICATION.md)
+
 ## Docs
 
 - [Chinese usage guide](docs/USAGE_ZH.md)
@@ -68,6 +74,7 @@ The link appears on `/developers` only when configured. This keeps the claim hon
 - [Submission notes](docs/SUBMISSION.md)
 - [Submission checklist](docs/USER_CHECKLIST.md)
 - [Agent Hub setup](docs/AGENT_HUB.md)
+- [Verification record](docs/VERIFICATION.md)
 
 ## Track
 

@@ -1,0 +1,66 @@
+{
+  "recordedAt": "2026-06-24T16:30:01.819Z",
+  "purpose": "Public, redacted sample of a BlackBox Court pre-trade evaluation. This is a paper-only result and contains no credentials or account balances.",
+  "request": {
+    "prompt": "Long BTC 900 USDT. Max loss 1%. Stop below swing low.",
+    "symbol": "BTCUSDT",
+    "timeframe": "1H",
+    "notional": 900,
+    "maxRiskPct": 1,
+    "policyPack": "balanced",
+    "locale": "en"
+  },
+  "responseSummary": {
+    "verdict": "reduce",
+    "riskScore": 35,
+    "allowedNotional": 315,
+    "judgeSummary": "Reduce: allow a smaller paper size with review.",
+    "noTradeReasons": [
+      "Requested notional exceeded the available read-only account balance. The balance is intentionally redacted from this public sample."
+    ]
+  },
+  "marketSnapshot": {
+    "source": "bitget-public-api",
+    "symbol": "BTCUSDT",
+    "timeframe": "1H",
+    "price": 60725.8,
+    "change24hPct": -2.7782,
+    "volatilityPct": 2.193,
+    "momentumPct": -0.5967,
+    "trend": "down",
+    "signals": {
+      "markPrice": 60724.3,
+      "bidAsk": "60724.2 / 60724.3",
+      "openInterest": 33448,
+      "fundingRatePct": 0.0061
+    }
+  },
+  "policyGates": [
+    { "id": "direction", "status": "pass", "detail": "Direction identified." },
+    { "id": "stop", "status": "pass", "detail": "Stop or invalidation provided." },
+    { "id": "budget", "status": "pass", "detail": "1.00% / 2.00% maximum." },
+    { "id": "size", "status": "pass", "detail": "900 / 5,000 USDT policy maximum." },
+    { "id": "volatility", "status": "pass", "detail": "2.19% / 4.50% maximum." },
+    { "id": "signal", "status": "pass", "detail": "Trend-quality threshold satisfied." },
+    { "id": "account", "status": "fail", "detail": "Requested notional exceeded read-only available balance; amount reduced." }
+  ],
+  "paperExecution": {
+    "status": "simulated_fill",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "fillPrice": 60756.16,
+    "markPrice": 60725.8,
+    "stopPrice": 60148.6,
+    "targetPrice": 61971.29,
+    "quantity": 0.005185,
+    "unrealizedPnl": -0.16,
+    "notional": 315,
+    "estimatedFee": 0.13,
+    "slippageBps": 5
+  },
+  "audit": {
+    "source": "live Bitget public market data plus optional read-only account context",
+    "executionBoundary": "No live order was sent. The paper execution is a snapshot estimate only.",
+    "replayFields": ["request", "marketSnapshot", "policyGates", "responseSummary", "paperExecution"]
+  }
+}
