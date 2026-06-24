@@ -414,7 +414,7 @@ export default function HomeClient() {
           </div>
         </aside>
 
-        <section className="panel workspace-panel workspace-panel--single">
+        <section aria-live="polite" className="panel workspace-panel workspace-panel--single">
           <div className="workspace-content workspace-content--stack">
             <StatsPanel loading={loadingStats} locale={locale} stats={safetyStats} />
 
@@ -432,19 +432,30 @@ export default function HomeClient() {
                   <h2>{t.awaiting}</h2>
                   <p>{t.awaitingCopy}</p>
                   <p className="empty-state-hint">{t.awaitingHint}</p>
+                  <button
+                    className="btn-secondary empty-state-cta"
+                    disabled={busy}
+                    onClick={() => void runDemoCase(t.demoCases[0])}
+                    type="button"
+                  >
+                    <Play size={16} />
+                    {t.runSample}
+                  </button>
                 </div>
               </div>
             ) : (
               <>
-                <VerdictStrip
-                  copy={{
-                    allowedNotional: t.allowedNotional,
-                    exportBundle: t.exportBundle,
-                    openReport: t.openReport
-                  }}
-                  decision={decision}
-                  locale={locale}
-                />
+                <div className="result-anchor">
+                  <VerdictStrip
+                    copy={{
+                      allowedNotional: t.allowedNotional,
+                      exportBundle: t.exportBundle,
+                      openReport: t.openReport
+                    }}
+                    decision={decision}
+                    locale={locale}
+                  />
+                </div>
 
                 {decision.noTradeReasons.length > 0 ? (
                   <section className="surface surface-compact">

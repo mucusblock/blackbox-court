@@ -2400,15 +2400,26 @@ a {
 }
 
 @media (max-width: 720px) {
-  .shell {
-    padding-top: 136px;
+  :root {
+    --topbar-height: 176px;
   }
 
   .topbar-main {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .mobile-nav-toggle {
+    margin: 0;
   }
 
   .top-actions {
+    grid-column: 1 / -1;
     width: 100%;
     justify-content: space-between;
   }
@@ -2444,6 +2455,34 @@ a {
   .panel-form {
     position: static;
     max-height: none;
+  }
+
+  .infra-flow-bar--compact {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .infra-flow-line {
+    flex: 0 1 auto;
+    line-height: 1.5;
+  }
+
+  .infra-flow-meta {
+    width: 100%;
+  }
+
+  .verdict-strip-main {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  .verdict-strip-copy {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  .verdict-strip-actions {
+    width: auto;
   }
 
   .infra-flow-steps {
