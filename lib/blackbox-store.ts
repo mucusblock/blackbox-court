@@ -5,6 +5,7 @@ import type { CourtDecision, CourtInput, DecisionRecord, SafetyImpactStats, Verd
 const DATA_DIR = path.join(process.cwd(), "data");
 const STORE_PATH = path.join(DATA_DIR, "blackbox-records.json");
 const MAX_RECORDS = 50;
+const volatileRecords: DecisionRecord[] = [];
 
 function makeId() {
   return `bbc_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
@@ -24,7 +25,7 @@ export async function readRecords(): Promise<DecisionRecord[]> {
     const parsed = JSON.parse(content);
     return Array.isArray(parsed) ? (parsed as DecisionRecord[]) : [];
   } catch {
-    return [];
+    return volatileRecords;
   }
 }
 
@@ -37,7 +38,6 @@ export async function saveDecision(
   input: CourtInput,
   decision: CourtDecision
 ): Promise<DecisionRecord> {
-  await ensureStore();
   const createdAt = new Date().toISOString();
   const record: DecisionRecord = {
     ...decision,
@@ -47,9 +47,15 @@ export async function saveDecision(
     title: makeTitle(input, decision)
   };
 
-  const records = await readRecords();
-  const nextRecords = [record, ...records].slice(0, MAX_RECORDS);
-  await writeFile(STORE_PATH, `${JSON.stringify(nextRecords, null, 2)}\n`, "utf8");
+  try {
+    await ensureStore();
+    const records = await readRecords();
+    const nextRecords = [record, ...records].slice(0, MAX_RECORDS);
+    await writeFile(STORE_PATH, `${JSON.stringify(nextRecords, null, 2)}\n`, "utf8");
+  } catch {
+    volatileRecords.unshift(record);
+    volatileRecords.splice(MAX_RECORDS);
+  }
   return record;
 }
 
