@@ -67,15 +67,13 @@ The link appears on `/developers` only when configured. This keeps the claim hon
 - [Redacted evaluation sample](examples/pre-trade-evaluation.sample.json)
 - [Reproduction and safety notes / 可核查使用记录与复现说明](docs/VERIFICATION.md)
 - [Chinese usage guide / 中文使用说明](docs/USAGE_ZH.md)
-- [Demo recording guide / 中文演示脚本](docs/DEMO_GUIDE_ZH.md)
 
 For Chinese-speaking judges: start with `docs/VERIFICATION.md` and `docs/USAGE_ZH.md`. They explain what the redacted sample proves, how to reproduce the request, and why the paper-position output is evidence of a risk-gate decision rather than a live trading claim.
 
-中文评委可优先查看 `docs/VERIFICATION.md`、`docs/USAGE_ZH.md` 和 `docs/DEMO_GUIDE_ZH.md`：里面说明了脱敏样本证明什么、如何复现请求、如何录制演示视频，以及为什么模拟持仓只是风控裁决证据，不是实盘收益声明。
+中文评委可优先查看 `docs/VERIFICATION.md` 和 `docs/USAGE_ZH.md`：里面说明了脱敏样本证明什么、如何复现请求，以及为什么模拟持仓只是风控裁决证据，不是实盘收益声明。
 
 ## Docs
 
-- [Demo guide and project explanation, Chinese](docs/DEMO_GUIDE_ZH.md)
 - [Chinese usage guide](docs/USAGE_ZH.md)
 - [Integration guide](docs/INTEGRATION.md)
 - [Submission notes](docs/SUBMISSION.md)
