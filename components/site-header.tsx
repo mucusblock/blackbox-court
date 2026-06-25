@@ -2,7 +2,7 @@
 
 import type { Route } from "next";
 import Link from "next/link";
-import { Gavel, Menu, X } from "lucide-react";
+import { DatabaseZap, FileJson, Gavel, Menu, ShieldCheck, X } from "lucide-react";
 import { useState } from "react";
 import { useAppSettings } from "@/components/app-settings-provider";
 import { locales, ui } from "@/lib/i18n";
@@ -50,6 +50,7 @@ export function SiteHeader({
         <button
           aria-expanded={menuOpen}
           aria-label={t.menu}
+          aria-controls="mobile-control-panel"
           className="mobile-nav-toggle icon-button"
           onClick={() => setMenuOpen((open) => !open)}
           type="button"
@@ -72,6 +73,29 @@ export function SiteHeader({
           >
             {t.navDevelopers}
           </Link>
+          <div className="mobile-menu-ops" id="mobile-control-panel">
+            <div className="mobile-menu-head">
+              <span>{t.mobileMenuTitle}</span>
+              <strong>{statusLabel ?? t.statusFallback}</strong>
+            </div>
+            <div className="mobile-menu-grid">
+              <div>
+                <ShieldCheck size={15} />
+                <span>{t.mobileMenuGate}</span>
+              </div>
+              <div>
+                <DatabaseZap size={15} />
+                <span>{statusLive ? t.mobileMenuLive : t.mobileMenuFallback}</span>
+              </div>
+              <div>
+                <FileJson size={15} />
+                <span>{t.mobileMenuAudit}</span>
+              </div>
+            </div>
+            <Link className="mobile-menu-link" href={devHref} onClick={() => setMenuOpen(false)}>
+              {t.mobileMenuDevelopers}
+            </Link>
+          </div>
         </nav>
 
         <div className="top-actions">

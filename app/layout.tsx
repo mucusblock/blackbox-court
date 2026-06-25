@@ -13,7 +13,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "BlackBox Court - Pre-trade gate - Bitget Trading Infra",
-  description: "One POST before your bot executes. Policy gate, Bitget market evidence, paper position snapshot, and audit export."
+  description: "One POST before your bot executes. Policy gate, Bitget market evidence, paper position snapshot, and audit export.",
+  icons: {
+    icon: "/favicon.svg"
+  }
 };
 
 const themeBootScript = `(function(){try{var t=localStorage.getItem("blackbox-court-theme");if(t==="light"||t==="bitget"||t==="dark"){document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t==="light"?"light":"dark";}var l=localStorage.getItem("blackbox-court-locale");if(l==="zh"||l==="en")document.documentElement.lang=l;}catch(e){}})();`;

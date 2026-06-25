@@ -13,6 +13,7 @@ import { ResultMarketPanel } from "@/components/result-market-panel";
 import { SiteHeader } from "@/components/site-header";
 import { StatsPanel } from "@/components/stats-panel";
 import { useAppSettings } from "@/components/app-settings-provider";
+import { CommandDeck } from "@/components/command-deck";
 import { InfraFlowBar } from "@/components/infra-flow-bar";
 import { VerdictStrip } from "@/components/verdict-strip";
 import { HistorySkeleton, WorkspaceSkeleton } from "@/components/workspace-skeleton";
@@ -241,6 +242,24 @@ export default function HomeClient() {
       <InfraFlowBar apiReady locale={locale} />
 
       {showFallbackBanner ? <FallbackBanner locale={locale} /> : null}
+
+      <CommandDeck
+        busy={busy}
+        decision={decision}
+        locale={locale}
+        marketLive={marketLive}
+        maxRiskPct={maxRiskPct}
+        notional={notional}
+        onRunClean={() => void runDemoCase(t.demoCases[0])}
+        onRunStress={() => {
+          setPrompt(t.stressPrompt as string);
+          setActiveCase(null);
+          void runCheck({ prompt: t.stressPrompt as string, notional: 10000, maxRiskPct: 3 });
+        }}
+        safetyStats={safetyStats}
+        symbol={symbol}
+        timeframe={timeframe}
+      />
 
       <section className="workspace">
         <aside className="panel panel-form">
