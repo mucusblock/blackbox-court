@@ -53,13 +53,13 @@ curl -X POST http://localhost:3000/api/court/evaluate \
 
 ## External paper-trade evidence
 
-The in-app paper position is a transparent snapshot estimate, not a Bitget demo order. For a hackathon submission, publish a real GetAgent Studio or external paper-trade log, then configure:
+The in-app paper position is a transparent snapshot estimate, not a Bitget demo order. If you publish a GetAgent Studio or external paper-trade log, configure:
 
 ```env
 PAPER_LOG_URL=https://your-public-paper-log-or-getagent-studio-link
 ```
 
-The link appears on `/developers` only when configured. This keeps the claim honest and makes the external evidence inspectable.
+The link appears on `/developers` only when configured. This keeps the claim honest and makes external evidence inspectable without implying that it is required for the core Trading Infra demo.
 
 ## Public verification
 

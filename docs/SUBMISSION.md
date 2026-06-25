@@ -21,7 +21,9 @@ BlackBox Court is a drop-in pre-trade risk gate for Bitget-connected agents: one
 - The in-app paper position is not an externally verified Bitget demo trade
 - A public GetAgent Studio or external paper-log link is shown only after `PAPER_LOG_URL` is configured
 
-## Three-minute video sequence
+## Optional three-minute video sequence
+
+Use this only if you decide to submit a demo video. The project can still be reviewed through the public GitHub repository, live demo, verification notes, and sample JSON.
 
 1. **0:00-0:20** - Show the execution control line: Bot -> evaluate -> verdict -> paper evidence -> audit.
 2. **0:20-0:50** - Run a clean trade sample. Show Bitget signals, policy passes, and the Paper Position Evidence card.
@@ -34,8 +36,10 @@ BlackBox Court is a drop-in pre-trade risk gate for Bitget-connected agents: one
 ## Submission evidence
 
 - Public GitHub repository with a runnable README
-- Demo video under the official time limit
-- External paper-trading evidence link, configured as `PAPER_LOG_URL`
+- Public verification notes and redacted sample input/output
+- Live deployment link, if available
+- Optional demo video under the official time limit
+- Optional external paper-trading evidence link, configured as `PAPER_LOG_URL`
 - Required project form and social post, following the final official instructions
 
 中文提交材料建议：
@@ -44,4 +48,5 @@ BlackBox Court is a drop-in pre-trade risk gate for Bitget-connected agents: one
 - 可核查使用记录：提交 `docs/VERIFICATION.md` 链接。
 - 样本输入/输出：提交 `examples/pre-trade-evaluation.sample.json` 链接。
 - 在线 Demo：提交 Vercel 链接。
-- 演示视频：如果录制，控制在 3 分钟内，重点展示一次允许/减仓和一次拦截案例。
+- 演示视频：选填；如果录制，控制在 3 分钟内，重点展示一次允许/减仓和一次拦截案例。
+- 外部 paper-log：选填；只有在 GetAgent Studio 或其他平台已经公开可访问时再提交。
