@@ -68,37 +68,37 @@
 }
 
 [data-theme="bitget"] {
-  --bg: #050810;
-  --bg-elevated: #0c1220;
-  --bg-inset: #080e18;
-  --line: #1a2840;
-  --line-soft: #111a2b;
-  --text: #e8f0ff;
-  --muted: #7d8fa8;
-  --green: #00e676;
-  --yellow: #ffc107;
+  --bg: #050807;
+  --bg-elevated: #0c1412;
+  --bg-inset: #07100e;
+  --line: #1b302b;
+  --line-soft: #11201d;
+  --text: #eefbf7;
+  --muted: #8ca19a;
+  --green: #00f0a8;
+  --yellow: #f4c95d;
   --red: #ff5252;
-  --blue: #00b8ff;
-  --text-soft: #b8c8de;
+  --blue: #00f0ff;
+  --text-soft: #c1d6d0;
   --danger-surface: rgba(255, 82, 82, 0.1);
   --danger-text: #ffcdd2;
-  --code-bg: #040810;
-  --code-text: #d0e4ff;
-  --accent: #00b8ff;
-  --accent-subtle: rgba(0, 184, 255, 0.12);
-  --accent-border: rgba(0, 184, 255, 0.5);
-  --accent-fg: #001018;
-  --control-bg: #080e18;
-  --control-border: #1a2840;
-  --control-focus: rgba(0, 184, 255, 0.55);
-  --verdict-allow-bg: rgba(0, 230, 118, 0.12);
-  --verdict-warn-bg: rgba(255, 193, 7, 0.12);
+  --code-bg: #03100d;
+  --code-text: #d7fff2;
+  --accent: #00f0a8;
+  --accent-subtle: rgba(0, 240, 168, 0.12);
+  --accent-border: rgba(0, 240, 168, 0.5);
+  --accent-fg: #001812;
+  --control-bg: #07100e;
+  --control-border: #1b302b;
+  --control-focus: rgba(0, 240, 168, 0.55);
+  --verdict-allow-bg: rgba(0, 240, 168, 0.12);
+  --verdict-warn-bg: rgba(244, 201, 93, 0.12);
   --verdict-block-bg: rgba(255, 82, 82, 0.12);
-  --skeleton-shimmer: rgba(125, 143, 168, 0.32);
+  --skeleton-shimmer: rgba(140, 161, 154, 0.32);
   --shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
-  --scrollbar-thumb: rgba(125, 143, 168, 0.28);
-  --scrollbar-thumb-hover: rgba(125, 143, 168, 0.48);
-  --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237d8fa8' d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
+  --scrollbar-thumb: rgba(140, 161, 154, 0.28);
+  --scrollbar-thumb-hover: rgba(140, 161, 154, 0.48);
+  --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238ca19a' d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
 }
 
 :root {

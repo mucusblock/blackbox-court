@@ -40,7 +40,7 @@ export function AppSettingsProvider({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [locale, setLocaleState] = useState<Locale>(initialLocale);
-  const [theme, setThemeState] = useState<ThemeId>("dark");
+  const [theme, setThemeState] = useState<ThemeId>("bitget");
   const [ready, setReady] = useState(false);
 
   useEffect(() => {

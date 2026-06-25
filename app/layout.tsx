@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   }
 };
 
-const themeBootScript = `(function(){try{var t=localStorage.getItem("blackbox-court-theme");if(t==="light"||t==="bitget"||t==="dark"){document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t==="light"?"light":"dark";}var l=localStorage.getItem("blackbox-court-locale");if(l==="zh"||l==="en")document.documentElement.lang=l;}catch(e){}})();`;
+const themeBootScript = `(function(){try{var t=localStorage.getItem("blackbox-court-theme")||"bitget";if(t==="light"||t==="bitget"||t==="dark"){document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t==="light"?"light":"dark";}var l=localStorage.getItem("blackbox-court-locale");if(l==="zh"||l==="en")document.documentElement.lang=l;}catch(e){}})();`;
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const cookieStore = await cookies();
   const initialLocale: Locale = cookieStore.get("blackbox-court-locale")?.value === "zh" ? "zh" : "en";
 
   return (
-    <html className={inter.variable} data-theme="dark" lang={initialLocale} suppressHydrationWarning>
+    <html className={inter.variable} data-theme="bitget" lang={initialLocale} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>

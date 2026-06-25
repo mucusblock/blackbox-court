@@ -12,5 +12,5 @@ export const themes: Record<
 };
 
 export function normalizeTheme(value: unknown): ThemeId {
-  return value === "light" || value === "bitget" ? value : "dark";
+  return value === "light" || value === "dark" ? value : "bitget";
 }
