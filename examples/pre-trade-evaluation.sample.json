@@ -1,6 +1,7 @@
 {
   "recordedAt": "2026-06-24T16:30:01.819Z",
   "purpose": "Public, redacted sample of a BlackBox Court pre-trade evaluation. This is a paper-only result and contains no credentials or account balances.",
+  "purposeZh": "BlackBox Court 预交易评估的公开脱敏样本。该结果仅用于说明风控裁决和模拟持仓证据，不包含凭证、私有余额或实盘收益声明。",
   "request": {
     "prompt": "Long BTC 900 USDT. Max loss 1%. Stop below swing low.",
     "symbol": "BTCUSDT",
@@ -61,6 +62,8 @@
   "audit": {
     "source": "live Bitget public market data plus optional read-only account context",
     "executionBoundary": "No live order was sent. The paper execution is a snapshot estimate only.",
+    "sourceZh": "实时 Bitget 公开行情，加上可选的只读账户上下文。",
+    "executionBoundaryZh": "本应用没有发送真实订单。paperExecution 只是基于当前快照的模拟估算。",
     "replayFields": ["request", "marketSnapshot", "policyGates", "responseSummary", "paperExecution"]
   }
 }

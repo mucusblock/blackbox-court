@@ -65,7 +65,12 @@ The link appears on `/developers` only when configured. This keeps the claim hon
 
 - Live demo: <https://blackbox-court.vercel.app>
 - [Redacted evaluation sample](examples/pre-trade-evaluation.sample.json)
-- [Reproduction and safety notes](docs/VERIFICATION.md)
+- [Reproduction and safety notes / 可核查使用记录与复现说明](docs/VERIFICATION.md)
+- [Chinese usage guide / 中文使用说明](docs/USAGE_ZH.md)
+
+For Chinese-speaking judges: start with `docs/VERIFICATION.md` and `docs/USAGE_ZH.md`. They explain what the redacted sample proves, how to reproduce the request, and why the paper-position output is evidence of a risk-gate decision rather than a live trading claim.
+
+中文评委可优先查看 `docs/VERIFICATION.md` 和 `docs/USAGE_ZH.md`：里面说明了脱敏样本证明什么、如何复现请求，以及为什么模拟持仓只是风控裁决证据，不是实盘收益声明。
 
 ## Docs
 
