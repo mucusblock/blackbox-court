@@ -2058,10 +2058,6 @@ a {
   font-size: 12px;
 }
 
-.empty-state-cta {
-  margin-top: 16px;
-}
-
 .stats-empty {
   display: grid;
   gap: 10px;

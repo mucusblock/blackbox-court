@@ -193,6 +193,13 @@ export default function HomeClient() {
     });
   }
 
+  function loadDemoCase(item: DemoCase) {
+    setActiveCase(item.label);
+    setPrompt(item.prompt);
+    setNotional(item.notional);
+    setMaxRiskPct(item.maxRiskPct);
+  }
+
   async function runDemoSeed() {
     setSeeding(true);
     setSeedMessage("");
@@ -343,7 +350,7 @@ export default function HomeClient() {
                 className={`case-button ${activeCase === item.label ? "active" : ""}`}
                 disabled={busy}
                 key={item.label}
-                onClick={() => void runDemoCase(item)}
+                onClick={() => loadDemoCase(item)}
                 type="button"
               >
                 {item.label}
@@ -361,9 +368,7 @@ export default function HomeClient() {
                 className="btn-secondary"
                 disabled={busy}
                 onClick={() => {
-                  setPrompt(t.stressPrompt as string);
-                  setActiveCase(null);
-                  void runCheck({ prompt: t.stressPrompt as string, notional: 10000, maxRiskPct: 3 });
+                  loadDemoCase(t.demoCases[1]);
                 }}
                 type="button"
               >
@@ -451,15 +456,6 @@ export default function HomeClient() {
                   <h2>{t.awaiting}</h2>
                   <p>{t.awaitingCopy}</p>
                   <p className="empty-state-hint">{t.awaitingHint}</p>
-                  <button
-                    className="btn-secondary empty-state-cta"
-                    disabled={busy}
-                    onClick={() => void runDemoCase(t.demoCases[0])}
-                    type="button"
-                  >
-                    <Play size={16} />
-                    {t.runSample}
-                  </button>
                 </div>
               </div>
             ) : (

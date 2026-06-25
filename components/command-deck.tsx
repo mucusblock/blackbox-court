@@ -77,7 +77,7 @@ export function CommandDeck({
             {symbol} · {timeframe}
           </strong>
           <small>
-            {money.format(notional)} USDT · {maxRiskPct}% max loss
+            {money.format(notional)} USDT · {maxRiskPct}% {t.commandMaxLoss}
           </small>
         </div>
 
