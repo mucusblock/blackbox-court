@@ -68,37 +68,37 @@
 }
 
 [data-theme="bitget"] {
-  --bg: #050807;
-  --bg-elevated: #0c1412;
-  --bg-inset: #07100e;
-  --line: #1b302b;
-  --line-soft: #11201d;
+  --bg: #020404;
+  --bg-elevated: #070909;
+  --bg-inset: #030707;
+  --line: #1e2424;
+  --line-soft: #111717;
   --text: #eefbf7;
-  --muted: #8ca19a;
-  --green: #00f0a8;
+  --muted: #9aa3a3;
+  --green: #00f0ff;
   --yellow: #f4c95d;
   --red: #ff5252;
   --blue: #00f0ff;
-  --text-soft: #c1d6d0;
+  --text-soft: #c9d2d2;
   --danger-surface: rgba(255, 82, 82, 0.1);
   --danger-text: #ffcdd2;
-  --code-bg: #03100d;
-  --code-text: #d7fff2;
-  --accent: #00f0a8;
-  --accent-subtle: rgba(0, 240, 168, 0.12);
-  --accent-border: rgba(0, 240, 168, 0.5);
-  --accent-fg: #001812;
-  --control-bg: #07100e;
-  --control-border: #1b302b;
-  --control-focus: rgba(0, 240, 168, 0.55);
-  --verdict-allow-bg: rgba(0, 240, 168, 0.12);
+  --code-bg: #010606;
+  --code-text: #d9feff;
+  --accent: #00f0ff;
+  --accent-subtle: rgba(0, 240, 255, 0.12);
+  --accent-border: rgba(0, 240, 255, 0.5);
+  --accent-fg: #001719;
+  --control-bg: #030707;
+  --control-border: #1e2424;
+  --control-focus: rgba(0, 240, 255, 0.55);
+  --verdict-allow-bg: rgba(0, 240, 255, 0.12);
   --verdict-warn-bg: rgba(244, 201, 93, 0.12);
   --verdict-block-bg: rgba(255, 82, 82, 0.12);
-  --skeleton-shimmer: rgba(140, 161, 154, 0.32);
+  --skeleton-shimmer: rgba(154, 163, 163, 0.32);
   --shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
-  --scrollbar-thumb: rgba(140, 161, 154, 0.28);
-  --scrollbar-thumb-hover: rgba(140, 161, 154, 0.48);
-  --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238ca19a' d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
+  --scrollbar-thumb: rgba(154, 163, 163, 0.28);
+  --scrollbar-thumb-hover: rgba(154, 163, 163, 0.48);
+  --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239aa3a3' d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
 }
 
 :root {
