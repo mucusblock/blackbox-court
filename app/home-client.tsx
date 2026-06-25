@@ -77,8 +77,6 @@ export default function HomeClient() {
   const [historyError, setHistoryError] = useState("");
   const [copied, setCopied] = useState(false);
   const [activeCase, setActiveCase] = useState<string | null>(null);
-  const [seeding, setSeeding] = useState(false);
-  const [seedMessage, setSeedMessage] = useState("");
 
   const policyLabels: Record<PolicyPackId, string> = {
     conservative: t.policyConservative,
@@ -200,29 +198,6 @@ export default function HomeClient() {
     setMaxRiskPct(item.maxRiskPct);
   }
 
-  async function runDemoSeed() {
-    setSeeding(true);
-    setSeedMessage("");
-    try {
-      const response = await fetch("/api/court/demo-seed", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ locale })
-      });
-      if (!response.ok) throw new Error("seed");
-      const payload = (await response.json()) as { lastRecord?: CourtDecision };
-      if (payload.lastRecord) setDecision(payload.lastRecord);
-      await loadRecords(false);
-      await loadSafetyStats(false);
-      setSeedMessage(t.demoSeedDone);
-    } catch {
-      setSeedMessage(t.demoSeedFailed);
-    } finally {
-      setSeeding(false);
-      window.setTimeout(() => setSeedMessage(""), 4000);
-    }
-  }
-
   async function copyDecisionJson() {
     if (!decision) return;
     await navigator.clipboard.writeText(JSON.stringify(decision, null, 2));
@@ -235,7 +210,7 @@ export default function HomeClient() {
     (decision?.market.source !== "fallback" && decision?.market.source === "bitget-public-api");
   const showFallbackBanner =
     decision?.market.source === "fallback" || (integration !== null && !integration.marketReachable);
-  const busy = loading || seeding;
+  const busy = loading;
 
   return (
     <main className="shell">
@@ -388,14 +363,6 @@ export default function HomeClient() {
               <h3>{t.history}</h3>
               <div className="history-head-actions">
                 <button
-                  className="btn-ghost btn-ghost-sm"
-                  disabled={busy}
-                  onClick={() => void runDemoSeed()}
-                  type="button"
-                >
-                  {seeding ? t.demoSeedRunning : t.demoSeed}
-                </button>
-                <button
                   aria-label={t.refreshHistory}
                   className="icon-button"
                   disabled={loadingRecords}
@@ -406,7 +373,6 @@ export default function HomeClient() {
                 </button>
               </div>
             </div>
-            {seedMessage ? <p className="muted history-seed-note">{seedMessage}</p> : null}
             <div className="history-list">
               {loadingRecords ? (
                 <HistorySkeleton />
