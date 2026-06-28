@@ -95,13 +95,13 @@ export function DevelopersIntegration() {
           <div className="integration-item">
             <span>{t.liveTrading}</span>
             <strong className={integration?.liveTradingEnabled ? "bad" : "ok"}>
-              {integration?.liveTradingEnabled ? t.failed : t.passed}
+              {integration?.liveTradingEnabled ? t.failed : t.liveTradingDisabled}
             </strong>
           </div>
           <div className="integration-item">
             <span>{t.browserSecrets}</span>
             <strong className={integration?.browserExposesSecrets ? "bad" : "ok"}>
-              {integration?.browserExposesSecrets ? t.failed : t.passed}
+              {integration?.browserExposesSecrets ? t.failed : t.notExposed}
             </strong>
           </div>
           <div className="integration-item">
