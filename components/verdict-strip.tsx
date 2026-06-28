@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { CourtDecision, Locale, PaperExecution, SafetyImpactStats, Verdict } from "@/lib/types";
+import { buildAuditBundle } from "@/lib/audit-bundle";
+import type { CourtDecision, DecisionRecord, Locale, PaperExecution, SafetyImpactStats, Verdict } from "@/lib/types";
 import { formatRiskScore } from "@/lib/format";
 import { ui, verdictLabel } from "@/lib/i18n";
 
@@ -37,6 +38,25 @@ function paperMeta(locale: Locale, paper: PaperExecution | null | undefined) {
   if (!paper || paper.status !== "simulated_fill") return null;
   const t = ui[locale];
   return `${t.paperFill} ${paper.fillPrice} · ${t.fee} ${paper.estimatedFee} USDT · ${t.slippage} ${paper.slippageBps} bps`;
+}
+
+function canExportBundle(decision: CourtDecision): decision is DecisionRecord {
+  return Boolean(decision.id && decision.input && "createdAt" in decision && "title" in decision);
+}
+
+function downloadAuditBundle(record: DecisionRecord) {
+  const bundle = buildAuditBundle(record);
+  const blob = new Blob([`${JSON.stringify(bundle, null, 2)}\n`], {
+    type: "application/json;charset=utf-8"
+  });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = `blackbox-court-${record.id}.json`;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(url);
 }
 
 type VerdictBannerProps = {
@@ -110,9 +130,16 @@ export function VerdictStrip({ locale, decision, copy }: VerdictStripProps) {
             <a className="btn-ghost" href={`/records/${decision.id}?lang=${locale}`}>
               {copy.openReport}
             </a>
-            <a className="btn-secondary" href={`/api/court/records/${decision.id}/export`}>
+            <button
+              className="btn-secondary"
+              disabled={!canExportBundle(decision)}
+              onClick={() => {
+                if (canExportBundle(decision)) downloadAuditBundle(decision);
+              }}
+              type="button"
+            >
               {copy.exportBundle}
-            </a>
+            </button>
           </div>
         ) : null
       }

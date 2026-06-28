@@ -18,9 +18,10 @@ import { InfraFlowBar } from "@/components/infra-flow-bar";
 import { VerdictStrip } from "@/components/verdict-strip";
 import { HistorySkeleton, WorkspaceSkeleton } from "@/components/workspace-skeleton";
 import { formatRecordTime, formatRiskScore } from "@/lib/format";
+import { saveLocalRecord } from "@/lib/local-record-cache";
 import { defaultInputsForPack, listPolicyPackIds } from "@/lib/policy-packs";
 import { ui, verdictLabel } from "@/lib/i18n";
-import type { CourtDecision, PolicyPackId, SafetyImpactStats, Verdict } from "@/lib/types";
+import type { CourtDecision, DecisionRecord, PolicyPackId, SafetyImpactStats, Verdict } from "@/lib/types";
 
 type RecordSummary = {
   id: string;
@@ -166,7 +167,8 @@ export default function HomeClient() {
         body: JSON.stringify({ ...body, locale })
       });
       if (!response.ok) throw new Error(`check-${response.status}`);
-      const record = (await response.json()) as CourtDecision;
+      const record = (await response.json()) as DecisionRecord;
+      saveLocalRecord(record);
       setDecision(record);
       await loadRecords(false);
       await loadSafetyStats(false);
